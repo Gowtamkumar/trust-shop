@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import AddProduct from './AddProduct/AddProduct';
 import EditProduct from './EditProduct/EditProduct';
@@ -12,12 +7,11 @@ import ManageProducts from './ManageProducts/ManageProducts';
 
 const Admin = () => {
     return (
-
         <div>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                    <h2> Dashboard</h2>
+                        <h2> Dashboard</h2>
                         <Router>
                             <div>
                                 <ul>
@@ -40,17 +34,14 @@ const Admin = () => {
                                         <AddProduct />
                                     </PrivateRoute>
                                     <PrivateRoute path="/editproduct">
-                                         <EditProduct />   
+                                        <EditProduct />
                                     </PrivateRoute>
                                 </Switch>
                             </div>
                         </Router>
                     </div>
-                    
                 </div>
             </div>
-            
-
         </div>
     );
 };

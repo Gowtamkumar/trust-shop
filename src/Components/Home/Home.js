@@ -14,13 +14,12 @@ const Home = () => {
         <div>
             <div className="container">
                 <div className="row">
-                {
-                    products.length === 0 && <img src={LoaddingSpnner} alt="" />
-                }
+                    {
+                        products.length === 0 && <img src={LoaddingSpnner} alt="" />
+                    }
                     {
                         products.map(pd => <Products pd={pd} ></Products>)
                     }
-
                 </div>
             </div>
         </div>

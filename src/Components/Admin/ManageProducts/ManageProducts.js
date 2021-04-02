@@ -9,7 +9,6 @@ const ManageProducts = () => {
             .then(res => res.json())
             .then(data => setManageProducts(data))
     }, [])
-
     const productDelete = (id) => {
         console.log(id)
         fetch(`https://rhubarb-crumble-96713.herokuapp.com/deleteproduct/${id}`, {
@@ -17,18 +16,15 @@ const ManageProducts = () => {
         })
             .then(res => res.json())
             .then(result => alert("Delete Successfully"))
-
     }
     return (
-
         <Container>
             <Row>
                 <h2>Manage Products</h2>
                 <Table striped bordered hover className="text-center">
                     <thead>
-                        <tr >
-
-                            <th>Product Name</th>
+                        <tr>
+                            <th style={{ width: 600 }}>Product Name</th>
                             <th>Wight</th>
                             <th>Price</th>
                             <th>Photo</th>
@@ -54,8 +50,6 @@ const ManageProducts = () => {
                                 </tr>
                             )
                         }
-
-
                     </tbody>
                 </Table>
             </Row>

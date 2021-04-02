@@ -8,7 +8,7 @@ const Orders = () => {
     console.log(LoggedInUser)
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch('https://rhubarb-crumble-96713.herokuapp.com/Orders?email='+LoggedInUser.email)
+        fetch('https://rhubarb-crumble-96713.herokuapp.com/Orders?email=' + LoggedInUser.email)
             .then(res => res.json())
             .then(ordersData => setOrders(ordersData))
     }, [])
@@ -20,13 +20,12 @@ const Orders = () => {
                 <Table striped bordered hover className="text-center">
                     <thead>
                         <tr>
-                            <th>Items</th>
+                            <th style={{ width: 600 }}>Items</th>
                             <th>Wight</th>
                             <th>Price</th>
                             <th>Photo</th>
-                            <th>Customer</th>
+                            <th>Quantity</th>
                             <th>Order Time</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -40,15 +39,13 @@ const Orders = () => {
                                     <td>{order.wight}</td>
                                     <td>${order.price}</td>
                                     <td>
-                                        <img src={order.photo} alt="" className="img-fluid" style={{ width: 40 }} />
+                                        <img src={order.photo} className="img-fluid" style={{ width: 40 }} alt="" />
                                     </td>
-                                    <td>{order.displayName}</td>
+                                    <td>{order.quaintity}</td>
                                     <td>{(new Date(order.orderTime).toDateString('dd/MM/yyyy'))}</td>
                                 </tr>
                             )
                         }
-
-
                     </tbody>
                 </Table>
             </Row>

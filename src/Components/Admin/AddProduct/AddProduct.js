@@ -7,7 +7,7 @@ const AddProduct = () => {
     const [addProduct, setProduct] = useState({
         success: ''
     })
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
         console.log(data)
         const eventData = {
@@ -31,7 +31,7 @@ const AddProduct = () => {
                 succesMessage.success = true
                 setProduct(data)
                 setProduct(succesMessage)
-                
+
             })
     };
     const imageHandler = (event) => {
@@ -49,7 +49,6 @@ const AddProduct = () => {
                 console.log(error);
             });
     }
-
     return (
         <div className="bg-light p-5">
             {addProduct.success && <div className="alert alert-success" role="alert">New product added Successfully.</div>}

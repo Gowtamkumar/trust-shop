@@ -17,11 +17,9 @@ if (!firebase.apps.length) {
 } else {
     firebase.app(); // if already initialized, use that one
 }
-
-
 const Signup = () => {
     const [LoggedInUser, setLoggedInUser] = useContext(UserContext)
-    console.log("text user email", LoggedInUser.email)
+
     const [user, setUser] = useState({
         error: '',
         success: ''
@@ -30,10 +28,8 @@ const Signup = () => {
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
-    const { register, handleSubmit, watch, errors } = useForm();
-
+    const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
-        console.log(data.name, data.email, data.password)
         // Create account
         firebase.auth()
             .createUserWithEmailAndPassword(data.email, data.password)
@@ -51,15 +47,10 @@ const Signup = () => {
                 const errorMessage = { ...user }
                 errorMessage.error = error.message;
                 errorMessage.success = false
-                console.log(errorMessage)
                 setUser(errorMessage)
             });
     };
-
-
-
     const HandelGoogleSignin = () => {
-        console.log("click hero")
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth()
             .signInWithPopup(provider)
@@ -68,17 +59,14 @@ const Signup = () => {
                 setUser(user)
                 setLoggedInUser(user)
                 history.replace(from);
-
             }).catch((error) => {
                 const errorMessage = error.message;
-
+                console.log(errorMessage)
             });
-
     }
     return (
         <div className="p-5 container">
             <div className="row d-flex justify-content-center">
-
                 <div className="col-example p-5 bg-light">
                     {user.error && <div className="alert alert-danger" role="alert">The email address is already in use by another account.</div>}
                     {user.success && <div className="alert alert-success" role="alert">New Create account  successfully.</div>}
@@ -98,7 +86,6 @@ const Signup = () => {
                             <Row>
                                 <Col>
                                     <Form.Group >
-
                                         <Form.Control name="email" type="email" placeholder="Your Email" ref={register({ required: true })} />
                                         <Form.Text className="text-muted">
                                             {errors.email && <span>This field is required</span>}
@@ -109,7 +96,6 @@ const Signup = () => {
                             <Row>
                                 <Col>
                                     <Form.Group >
-
                                         <Form.Control name="password" type="text" placeholder="Your password" ref={register({ required: true })} />
                                         <Form.Text className="text-muted">
                                             {errors.password && <span>This field is required</span>}
@@ -135,11 +121,7 @@ const Signup = () => {
                             </Row>
                         </Container>
                     </form>
-
                 </div>
-
-
-
             </div>
         </div>
     );

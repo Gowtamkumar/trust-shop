@@ -35,7 +35,6 @@ const Checkout = () => {
             .then(res => res.json())
             .then(data => alert("Order successfully"))
     }
-
     return (
         <div>
             <Container>
