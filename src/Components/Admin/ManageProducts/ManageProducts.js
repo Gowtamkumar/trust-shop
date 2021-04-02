@@ -1,3 +1,4 @@
+import DeleteIcon from '../../Photo/delete.png'
 import LoaddingSpnner from '../../Photo/Homepageloadingspnner.gif';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
@@ -45,7 +46,7 @@ const ManageProducts = () => {
                                         <img src={mp.imageURL} alt="" className="img-fluid" style={{ width: 40 }} />
                                     </td>
                                     <td>
-                                        <button className="btn btn-warning">Edit</button> <button className="btn btn-danger" onClick={() => productDelete(mp._id)}>Delete</button>
+                                        <button className="btn btn-warning">Edit</button> <button className="btn btn-danger" onClick={() => productDelete(mp._id)}> <img src={DeleteIcon} alt="" style={{width:20}}/></button>
                                     </td>
                                 </tr>
                             )

@@ -51,7 +51,8 @@ const Login = () => {
             });
 
     };
-    const HandelGoogleSignin = () => {
+
+     const HandelGoogleSignin = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth()
             .signInWithPopup(provider)

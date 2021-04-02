@@ -1,6 +1,7 @@
 import LoaddingSpnner from '../Photo/Homepageloadingspnner.gif';
 import React, { useEffect, useState } from 'react';
 import Products from '../Products/Products';
+import './Home.css'
 
 const Home = () => {
     const [products, setproducts] = useState([])
@@ -11,8 +12,7 @@ const Home = () => {
             .then(data => setproducts(data))
     }, [])
     return (
-        <div>
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     {
                         products.length === 0 && <img src={LoaddingSpnner} alt="" />
@@ -22,7 +22,7 @@ const Home = () => {
                     }
                 </div>
             </div>
-        </div>
+       
     );
 };
 
